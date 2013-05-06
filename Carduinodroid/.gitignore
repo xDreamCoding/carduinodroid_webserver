@@ -10,6 +10,5 @@ target
 *.ear
 *.gwt
 gwt-unitCache 
-
 *.txt
 *.gpx
