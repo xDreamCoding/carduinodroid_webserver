@@ -1,10 +1,10 @@
-carduinodroid_webserver
+Carduinodroid Webserver
 =======================
 
 Webserver for the https://code.google.com/p/carduinodroid/ project
 _______________________
 
-Hi Leute kleine Anleitung:
+Hi Leute hier eine kleine **Anleitung**:
 
 1. Eclipse http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/junosr2
 
