@@ -11,8 +11,8 @@
   </listener>
 
   <!-- Servlets -->
-  <!--
-  
+
+  <!-- 
   <servlet>
     <servlet-name>greetServlet</servlet-name>
     <servlet-class>de.xdreamcoding.server.GreetingServiceImpl</servlet-class>
@@ -22,14 +22,14 @@
     <servlet-name>greetServlet</servlet-name>
     <url-pattern>/carduinodroid/greet</url-pattern>
   </servlet-mapping>
-  
   -->
+
   
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>html/index.html</welcome-file>
   </welcome-file-list>
-  
+ 
   <servlet>
   	<servlet-name>Login</servlet-name>
   	<servlet-class>de.xdreamcoding.server.LoginImpl</servlet-class>
@@ -38,5 +38,5 @@
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/carduinodroid/Login</url-pattern>
   </servlet-mapping>
-
+  
 </web-app>
