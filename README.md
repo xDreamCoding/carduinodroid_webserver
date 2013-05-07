@@ -1,6 +1,8 @@
 Carduinodroid Webserver
 =======================
 
+![](https://raw.github.com/xDreamCoding/carduinodroid_webserver/master/Carduinodroid/war/pics/Logofin.png)
+
 Webserver for the https://code.google.com/p/carduinodroid/ project
 _______________________
 
