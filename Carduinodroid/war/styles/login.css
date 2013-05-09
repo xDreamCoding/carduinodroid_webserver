@@ -6,13 +6,15 @@ font-family:tahoma;
 }
 
 form.login {
-	
 	width: 340px;
-    margin: 90px auto 30px;
+    margin: 60px auto 30px;
     padding: 15px;
     position: center;
 	overflow:auto;
-    
+
+	}
+	
+.box {
     background: #fffaf6;
     border-radius: 4px;
     color: #7e7975;
@@ -20,10 +22,9 @@ form.login {
         0 2px 2px rgba(0,0,0,0.2),        
         0 1px 5px rgba(0,0,0,0.2),        
         0 0 0 12px rgba(255,255,255,0.4); 
-	}
+}
 	
-
-input.text{
+.text{
 	border:1px solid #CCC
 	margin-left:10px;
 	margin-right:auto;
@@ -32,27 +33,20 @@ input.text{
 	margin:4px;
 	}
 
-#name{
+.name{
 	margin-left:5px;
 	}
 
-p{	
+p{
 	width: 600px;
-    margin: 90px auto 30px;
+    margin: 60px auto 30px;
     padding: 15px;
     position: center;
-	overflow:auto;
-    
-    background: #fffaf6;
-    border-radius: 4px;
-    color: #7e7975;
-    box-shadow:
-        0 2px 2px rgba(0,0,0,0.2),        
-        0 1px 5px rgba(0,0,0,0.2),        
-        0 0 0 12px rgba(255,255,255,0.4); 
-	}
+	overflow: auto;
+	text-align: center;
+}
 	
-input.submit {
+.submit {
 	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
 	box-shadow:inset 0px 1px 0px 0px #fff6af;
@@ -73,13 +67,19 @@ input.submit {
 	text-decoration:none;
 	text-shadow:1px 1px 0px #ffee66;
 }
-input.submit:hover {
+
+.submit:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64) );
 	background:-moz-linear-gradient( center top, #ffab23 5%, #ffec64 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64');
 	background-color:#ffab23;
 }
-input.submit:active {
+
+.submit:active {
 	position:relative;
 	top:1px;
+}
+
+#sendButtonContainer {
+	text-align:center;
 }

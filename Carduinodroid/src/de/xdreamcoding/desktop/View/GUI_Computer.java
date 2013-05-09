@@ -34,15 +34,13 @@ import javax.swing.JToggleButton;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.Border;
 
-import com.google.gwt.core.client.EntryPoint;
-
 import de.xdreamcoding.desktop.Controller.Controller_Computer;
 import de.xdreamcoding.desktop.Model.GPSTrack;
 import de.xdreamcoding.desktop.Model.Log;
 
 /** Class for graphical user interface with methods for creating the window.
 *
-* @author Benjamin L
+* @author Benjamin L<
 * @author Lars
 * @version 14.06.2012
 */
