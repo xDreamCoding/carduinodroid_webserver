@@ -32,4 +32,8 @@ public interface Login extends RemoteService {
 			return instance;
 		}
 	}
+	
+	public String connectIP(String ip) throws IllegalArgumentException;
+	
+	public String loginUser(String name, String pwhash) throws IllegalArgumentException;
 }

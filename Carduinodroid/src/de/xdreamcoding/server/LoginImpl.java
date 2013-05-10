@@ -18,4 +18,16 @@ import de.xdreamcoding.client.Login;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 public class LoginImpl extends RemoteServiceServlet implements Login {
+
+	@Override
+	public String connectIP(String ip) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String loginUser(String name, String hash)  throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
