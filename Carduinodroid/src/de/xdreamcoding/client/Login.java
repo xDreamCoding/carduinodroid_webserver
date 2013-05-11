@@ -14,9 +14,13 @@
  *******************************************************************************/
 package de.xdreamcoding.client;
 
+import java.sql.SQLException;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
+
+import de.xdreamcoding.shared.User;
 
 @RemoteServiceRelativePath("Login")
 public interface Login extends RemoteService {
@@ -35,5 +39,5 @@ public interface Login extends RemoteService {
 	
 	public String connectIP(String ip) throws IllegalArgumentException;
 	
-	public String loginUser(String name, String pwhash) throws IllegalArgumentException;
+	public User loginUser(String name, String password) throws IllegalArgumentException;
 }

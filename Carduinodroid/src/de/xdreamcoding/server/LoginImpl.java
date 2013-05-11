@@ -14,20 +14,43 @@
  *******************************************************************************/
 package de.xdreamcoding.server;
 
-import de.xdreamcoding.client.Login;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+
+import de.xdreamcoding.client.Login;
+import de.xdreamcoding.shared.User;
 
 public class LoginImpl extends RemoteServiceServlet implements Login {
 
 	@Override
 	public String connectIP(String ip) throws IllegalArgumentException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String loginUser(String name, String hash)  throws IllegalArgumentException {
-		// TODO Auto-generated method stub
-		return null;
+	public User loginUser(String login, String password)  throws IllegalArgumentException {
+		
+		User user = new User();
+		Connection connection = (Connection) getServletContext().getAttribute("connection");
+		try {
+			Statement stmt = connection.createStatement();
+			if(stmt.execute("SELECT name FROM user WHERE login = '" + login + "' AND password = '" + password + "';")) {
+				ResultSet rset = stmt.getResultSet();
+				rset.next();
+				user.setName(rset.getString(1));
+			} else {
+				stmt.close();
+				throw new IllegalArgumentException("Login invalid.");
+			}
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 }

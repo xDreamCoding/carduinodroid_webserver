@@ -1,7 +1,6 @@
 package de.xdreamcoding.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -14,14 +13,18 @@ import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 
+import de.xdreamcoding.shared.User;
+
 public class LoginEntryPoint implements EntryPoint {
 		
 	private final LoginAsync LoginService = Login.Util.getInstance();
-	Button sendButton;
-	TextBox loginField;
-	PasswordTextBox passwordField;
-	Label errorLabel;
-
+	private Button sendButton;
+	private TextBox loginField;
+	private PasswordTextBox passwordField;
+	private Label errorLabel;
+	
+	private static User user;
+	
 	@Override
 	public void onModuleLoad() {
 		
@@ -63,13 +66,21 @@ public class LoginEntryPoint implements EntryPoint {
 	}
 
 	void sendLoginToServer() {
+		errorLabel.setText("");
 		LoginService.loginUser(loginField.getText(), passwordField.getText(),
-			new AsyncCallback<String>() {
+			new AsyncCallback<User>() {
 				public void onFailure(Throwable caught) {
 					errorLabel.setText(caught.getMessage());
 				}
 
-				public void onSuccess(String b) {
+				@Override
+				public void onSuccess(User result) {
+					if(result != null) {
+						user = result;
+						errorLabel.setText("Hello " + result.getName() + " you sucessfully logged in!");
+					} else {
+						errorLabel.setText("Login invalid!");
+					}
 				}
 			});
 		}
