@@ -1,53 +1,60 @@
 <!doctype html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>CarDuinoDroid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CarDuinoDroid</title>
 
-	<link rel="stylesheet" type="text/css" href="../styles/login.css" />
+<link rel="stylesheet" type="text/css" href="../styles/login.css" />
 
-	<script type="text/javascript" language="javascript" src="../carduinodroid/carduinodroid.nocache.js"></script>
+<script type="text/javascript" language="javascript"
+	src="../carduinodroid/carduinodroid.nocache.js"></script>
 
 </head>
 <body>
-	<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+	<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
+		style="position: absolute; width: 0; height: 0; border: 0"></iframe>
 
 	<noscript>
-     	<div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
-       	Your web browser must have JavaScript enabled
-       	in order for this application to display correctly.
-     	</div>
+		<div
+			style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+			Your web browser must have JavaScript enabled in order for this
+			application to display correctly.</div>
 	</noscript>
 
-	<div align="center" style="border-color:FFFFFF">
-   		<div>
-			<img src="../pics/Logofin.png">
-       		<form action="" method="get" class="login box">
-        		<h1>Login</h1>
-		 		<table>
-		   		<tr>
+	<div align="center">
+		<img src="../pics/Logofin.png">
+		<form action="" method="get" class="login box">
+			<h2>Login</h2>
+			<table>
+				<tr>
 					<td for="nickname">Nickname:</td>
 					<td id="loginFieldContainer"></td>
-		   		</tr>
-		   		<tr>	
+				</tr>
+				<tr>
 					<td for="password">Password:</td>
 					<td id="passwordFieldContainer"></td>
-		   		</tr>
-		   		<tr>
-        			<td colspan="2" id="sendButtonContainer"></td>
-      			</tr>
-      			<tr>
-        			<td colspan="2" style="color:red;" id="errorLabelContainer"></td>
-      			</tr>		   
-		  		</table>      
-	   		</form>	
-  		</div>
-  		</div align="center">
-   		<div align="bottom">
-			<p class="box">
-				Welcome to Carduinodroid. If you want to watch another driver, please click on "Look for a driver." We hope you enjoy our website.
-			</p>
-   		</div>
+				</tr>
+				<tr>
+					<td colspan="2" id="sendButtonContainer" class="buttonContainer"></td>
+				</tr>
+			</table>
+		</form>
+		<form action="" method="get" class="login box">
+			<h2>Connect</h2>
+			<table>
+				<tr>
+					<td for="nickname">IP:</td>
+					<td id="ipFieldContainer"></td>
+				</tr>
+				<tr>
+					<td colspan="2" id="connectButtonContainer" class="buttonContainer"></td>
+				</tr>
+			</table>
+		</form>
+		<p class="label box" id="errorLabelContainer"></p> 
+		<p class="label box">Welcome to Carduinodroid. If you want to watch
+			another driver, please click on "Look for a driver." We hope you
+			enjoy our website.</p>
 	</div>
 </body>
 </html>
