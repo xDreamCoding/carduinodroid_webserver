@@ -11,6 +11,8 @@ import javax.servlet.ServletContextListener;
 import de.xdreamcoding.desktop.Controller.Controller_Computer;
 import de.xdreamcoding.desktop.Model.GPSTrack;
 import de.xdreamcoding.desktop.Model.Log;
+import de.xdreamcoding.utilities.*;
+import de.xdreamcoding.utilities.Config.Options;
 
 public class MyServletContextListener implements ServletContextListener {
 
@@ -46,16 +48,49 @@ public class MyServletContextListener implements ServletContextListener {
 	    context.setAttribute("controller", controller);
 	    log.writelogfile("Controller_Computer instanciated.");
 	    
-	    try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/carduinodroid", "root", "test");
-			log.writelogfile("DB Connection established.");
-			context.setAttribute("connection", connection);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    Config config = new Config(log);
+	    config.readOptions();
+	    //context.setAttribute("config", config);
 	    
+	    Options options = config.getOptions();
+	    // check if any options were found, if not load default
+	    if(options.dbAddress == null) { 	    	
+	    	/*
+	    	 * DB läuft auf/im 
+	    	 * 	localhost 	-> true
+	    	 * 	FEM-Netz	-> false
+	    	 */
+	    	boolean localhost = false;	
+	    	options.fahrZeit = 10;
+	    	if(localhost) {
+	    		options.dbAddress = "localhost:3306/carduinodroid";
+	    		options.dbUser = "root";
+	    		options.dbPW = "test";
+	    	} else {
+	    		options.dbAddress = "sehraf-pi:3306/carduinodroid";
+	    		options.dbUser = "test";
+	    		options.dbPW = "test";
+	    	}
+	    	config.writeOptions(options);
+	    }	    
+	    context.setAttribute("options", options);
+	    log.writelogfile("Options loaded");
+	    
+//	    try {
+//			Class.forName("org.mariadb.jdbc.Driver");
+//			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/carduinodroid", "root", "test");
+//			log.writelogfile("DB Connection established.");
+//			context.setAttribute("connection", connection);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	    
+	    DBConnector db = new DBConnector(log, options);
+	    if(db.connect()) {
+	    	Connection dbConnection = db.getDbConnection();
+	    	context.setAttribute("connection", dbConnection);
+	    }
 	  }
 
 }
